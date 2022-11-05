@@ -7,14 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="StudentAggregate\"/>
-        <None Remove="SeedWork\"/>
+        <None Remove="StudentAggregate\" />
+        <None Remove="SeedWork\" />
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="AggregateModels"/>
-        <Folder Include="SeedWork\"/>
+        <Folder Include="AggregateModels" />
+        <Folder Include="SeedWork\" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="MediatR" Version="11.0.0"/>
+        <PackageReference Include="MediatR" Version="11.0.0" />
     </ItemGroup>
 </Project>
