@@ -1,6 +1,6 @@
 namespace student_information_system.domain.Exceptions;
 
-public class ErrorMessageConsts
+public static class ErrorMessageConsts
 {
     private const string BaseValidationMessage =
         $"Validation exception in {nameof(student_information_system.domain.SeedWork.Audit)}";

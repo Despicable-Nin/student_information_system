@@ -3,15 +3,10 @@
 namespace student_information_system.domain.SeedWork;
 internal abstract class Audit : IAuditable
 {
-    public Guid Id { get; protected set; }
-
-    
-    
-    public DateTimeOffset CreatedOn { get; private set; }
+    public DateTimeOffset CreatedOn { get; private set; } 
     public DateTimeOffset ModifiedOn { get; private set; }
     
     private string _createdBy;
-
     public string CreatedBy
     {
         get => _createdBy;
@@ -23,7 +18,19 @@ internal abstract class Audit : IAuditable
             _createdBy = value.ToLower();
         }
     }
-    public string ModifiedBy { get; private set; }
+    
+    private string _modifiedBy;
+    public string ModifiedBy
+    {
+        get => _modifiedBy;
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(_modifiedBy))
+                throw new DomainValidationException(ErrorMessageConsts.ValueCannotBeEmpty);
+
+            _modifiedBy = value.ToLower();
+        }
+    }
 
     public virtual void AuditOnCreate(string createdBy)
     {
@@ -33,6 +40,12 @@ internal abstract class Audit : IAuditable
         var now = DateTimeOffset.Now;
         CreatedOn = now;
         ModifiedOn = now;
+    }
+
+    public virtual void AuditOnModify(string modifiedBy)
+    {
+        ModifiedBy = modifiedBy;
+        ModifiedOn = DateTimeOffset.Now;
     }
 }
 

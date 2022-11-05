@@ -11,7 +11,7 @@
     <None Remove="SeedWork\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="StudentAggregate\" />
+    <Folder Include="AggregateModels" />
     <Folder Include="SeedWork\" />
   </ItemGroup>
   <ItemGroup>

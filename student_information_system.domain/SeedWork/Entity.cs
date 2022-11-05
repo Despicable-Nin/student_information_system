@@ -2,7 +2,7 @@
 
 namespace student_information_system.domain.SeedWork;
 
-public abstract class Entity
+internal abstract class Entity : Audit
 {
     int? _requestedHashCode;
     int _Id;
