@@ -1,12 +1,15 @@
 ﻿using student_information_system.domain.Exceptions;
 
 namespace student_information_system.domain.SeedWork;
+
 internal abstract class Audit : IAuditable
 {
-    public DateTimeOffset CreatedOn { get; private set; } 
-    public DateTimeOffset ModifiedOn { get; private set; }
-    
     private string _createdBy;
+
+    private string _modifiedBy;
+    public DateTimeOffset CreatedOn { get; private set; }
+    public DateTimeOffset ModifiedOn { get; private set; }
+
     public string CreatedBy
     {
         get => _createdBy;
@@ -18,8 +21,7 @@ internal abstract class Audit : IAuditable
             _createdBy = value.ToLower();
         }
     }
-    
-    private string _modifiedBy;
+
     public string ModifiedBy
     {
         get => _modifiedBy;
@@ -52,8 +54,8 @@ internal abstract class Audit : IAuditable
 public interface IAuditable
 {
     public DateTimeOffset CreatedOn { get; }
-    public DateTimeOffset ModifiedOn { get;  }
-    
+    public DateTimeOffset ModifiedOn { get; }
+
     public string CreatedBy { get; }
-    public string ModifiedBy { get;  }
+    public string ModifiedBy { get; }
 }

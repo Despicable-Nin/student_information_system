@@ -1,16 +1,10 @@
 ﻿using student_information_system.domain.SeedWork;
-using student_information_system.domain.StudentAggregate;
 
 namespace student_information_system.domain.AggregateModels.StudentAggregate;
 
 internal class ContactDetail : Audit
 {
-
-    public string Email { get; private set; }
-    
     private readonly List<PhoneNumber> _phoneNumbers;
-
-    public IEnumerable<PhoneNumber> PhoneNumbers => _phoneNumbers.AsReadOnly();
 
     protected ContactDetail()
     {
@@ -23,5 +17,7 @@ internal class ContactDetail : Audit
         _phoneNumbers.AddRange(phoneNumbers);
     }
 
-}
+    public string Email { get; }
 
+    public IEnumerable<PhoneNumber> PhoneNumbers => _phoneNumbers.AsReadOnly();
+}

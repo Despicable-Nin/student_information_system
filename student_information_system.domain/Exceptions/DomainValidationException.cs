@@ -3,6 +3,7 @@ namespace student_information_system.domain.Exceptions;
 public class DomainValidationException : Exception
 {
     private readonly string _message;
+
     public DomainValidationException(string message) : base(message)
     {
         _message = message;

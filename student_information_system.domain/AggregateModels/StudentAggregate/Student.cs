@@ -1,19 +1,9 @@
 ﻿using student_information_system.domain.SeedWork;
 
-namespace student_information_system.domain.StudentAggregate;
+namespace student_information_system.domain.AggregateModels.StudentAggregate;
 
 internal sealed class Student : Entity, IAggregateRoot
 {
-    
-    public string LRN { get; private set; }
-    public string LastName { get; private set; }
-    public string FirstName { get; private set; }
-    public string MiddleName { get; private set; }
-    
-    public Gender Gender { get; private set; }
-    
-    public Address Address { get; private set; }
-
     public Student(string lrn, string lastname, string firstname, string middlename, Gender gender, Address address)
     {
         LRN = lrn;
@@ -24,18 +14,22 @@ internal sealed class Student : Entity, IAggregateRoot
         Address = address;
     }
 
+    public string LRN { get; }
+    public string LastName { get; }
+    public string FirstName { get; }
+    public string MiddleName { get; }
+
+    public Gender Gender { get; }
+
+    public Address Address { get; }
 }
 
 public class Address : ValueObject
 {
-    public String Street { get; private set; }
-    public String City { get; private set; }
-    public String State { get; private set; }
-    public String Country { get; private set; }
-    public String ZipCode { get; private set; }
-    
+    private Address()
+    {
+    }
 
-    private Address(){}
     public Address(string street, string city, string state, string country, string zipcode)
     {
         Street = street;
@@ -44,6 +38,12 @@ public class Address : ValueObject
         Country = country;
         ZipCode = zipcode;
     }
+
+    public string Street { get; }
+    public string City { get; }
+    public string State { get; }
+    public string Country { get; }
+    public string ZipCode { get; }
 
     protected override IEnumerable<object> GetEqualityComponents()
     {
@@ -55,4 +55,3 @@ public class Address : ValueObject
         yield return ZipCode;
     }
 }
-
