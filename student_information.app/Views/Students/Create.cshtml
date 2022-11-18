@@ -1,0 +1,96 @@
+
+@model student_information.app.Models.StudentModels.StudentCreateViewModel
+
+@{
+    Layout = "_Layout";
+}
+<div class="container">
+ <form asp-action="Create">
+     <div class="row p-3">
+         <div class="col-12 col-lg-4 p-2">
+             <input type="text" class="form-control" placeholder="First Name" asp-for="FirstName">
+         </div>
+         <div class="col-12 col-lg-4  p-2">
+             <input type="text" class="form-control" placeholder="Middle Name" asp-for="MiddleName">
+         </div>
+         <div class="col-12 col-lg-4  p-2">
+             <input type="text" class="form-control" placeholder="Last Name" asp-for="LastName">
+         </div>
+     </div>
+        <div class="row px-3">
+            <div class="col-12 col-lg-4 p-2 input-group">
+                 
+                 <span class="input-group-text" id="basic-addon2">Date of birth</span>
+                 <input type="date" class="form-control" placeholder="Date Of Birth" value="@DateTime.Now.AddYears(-18)">
+     
+                 <span class="input-group-text" id="basic-addon1">LRN</span>
+                 <input type="text" class="form-control" placeholder="LRN" asp-for="LRN">
+             </div>
+         </div>
+     <div class="row py-1">
+         <div class="col-12 col-lg-4 px-5">
+             <label asp-for="Gender">Gender</label>
+             
+             <div class="mt-2">
+                 <div class="form-check form-check-inline">
+                     <input class="form-check-input" type="radio" name="gender" id="gender1" checked>
+                     <label class="form-check-label" for="gender1">
+                         Male
+                     </label>
+                 </div>
+                 <div class="form-check form-check-inline">
+                     <input class="form-check-input" type="radio" name="gender" id="gender2">
+                     <label class="form-check-label" for="gender2">
+                         Female
+                     </label>
+                 </div>
+             </div>
+             
+         </div>
+ 
+     </div>
+  
+     <div class="row p-2">
+         <div class="col">
+             <input type="email" class="form-control" placeholder="Email" asp-for="Email">
+             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+         </div>
+         <div class="col">
+            <input type="text" class="form-control" placeholder="Phone number" asp-for="PhoneNumber">
+         </div>
+     </div>
+     <hr/>
+ 
+     <div class="row p-2">
+         <div class="col">
+             <input type="text" class="form-control" placeholder="Address Line 1" asp-for="AddressLine">
+         </div>
+         <div class="col">
+             <input type="text" class="form-control" placeholder="City" asp-for="City">
+         </div>
+         <div class="col">
+             <input type="text" class="form-control" placeholder="State" asp-for="State">
+         </div>
+       
+     </div>
+     <div class="row p-2">
+         <div class="col">
+             <input type="text" class="form-control" placeholder="Country" asp-for="Country">
+         </div>
+         <div class="col">
+             <input type="text" class="form-control" placeholder="Zipcode" asp-for="ZipCode">
+         </div>
+        
+     </div>
+ 
+     <div class="row p-2">
+         <div class="col-12 col-md float-end">
+            <button type="submit" class="btn btn-success p-2 ">Submit</button>
+              <a  class="btn btn-danger p-2 " asp-action="Index">Cancel</a>
+                          
+         </div>
+  
+     </div>
+ </form>   
+    
+</div>
