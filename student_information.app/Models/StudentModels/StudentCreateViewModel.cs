@@ -14,6 +14,5 @@ public class StudentCreateViewModel
     public string PhoneNumber { get; set; }
     public string Email { get; set; }
     public DateTimeOffset DateOfBirth { get; set; }
-    public int Gender { get; set; }
-    
+    public int Gender { get; set; } = 1;
 }

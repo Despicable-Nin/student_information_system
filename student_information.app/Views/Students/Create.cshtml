@@ -5,92 +5,97 @@
     Layout = "_Layout";
 }
 <div class="container">
- <form asp-action="Create">
-     <div class="row p-3">
-         <div class="col-12 col-lg-4 p-2">
-             <input type="text" class="form-control" placeholder="First Name" asp-for="FirstName">
+    <form asp-action="Create">
+         <div class="row p-3">
+             <div class="col-12 col-lg-4 p-2">
+                 @* <input type="text" class="form-control" placeholder="First Name" asp-for="FirstName"> *@
+                 @Html.TextBoxFor(m => m.FirstName,"",new {@class="form-control", @placeholder="First name"})
+             </div>
+             <div class="col-12 col-lg-4  p-2">
+                 @* <input type="text" class="form-control" placeholder="Middle Name" asp-for="MiddleName"> *@
+                 @Html.TextBoxFor(m => m.MiddleName,"",new {@class="form-control", @placeholder="Middle name"})
+             </div>
+             <div class="col-12 col-lg-4  p-2">
+                 @* <input type="text" class="form-control" placeholder="Last Name" asp-for="LastName"> *@
+                @Html.TextBoxFor(m => m.LastName,"",new {@class="form-control", @placeholder="Last name"})
+             </div>
          </div>
-         <div class="col-12 col-lg-4  p-2">
-             <input type="text" class="form-control" placeholder="Middle Name" asp-for="MiddleName">
-         </div>
-         <div class="col-12 col-lg-4  p-2">
-             <input type="text" class="form-control" placeholder="Last Name" asp-for="LastName">
-         </div>
-     </div>
         <div class="row px-3">
             <div class="col-12 col-lg-4 p-2 input-group">
-                 
-                 <span class="input-group-text" id="basic-addon2">Date of birth</span>
+                <span class="input-group-text" id="basic-addon2">Date of birth</span>
+                @* @Html.TextBoxFor(c => c.DateOfBirth,new {@class="form-control", @type="date", value=@DateTime.Now.AddYears(-18)}) *@
                  <input type="date" class="form-control" placeholder="Date Of Birth" value="@DateTime.Now.AddYears(-18)">
-     
                  <span class="input-group-text" id="basic-addon1">LRN</span>
-                 <input type="text" class="form-control" placeholder="LRN" asp-for="LRN">
+                @* <input type="text" class="form-control" placeholder="LRN" asp-for="LRN"> *@
+                @Html.TextBoxFor(c=> c.LRN,"text",new{@class="form-control", @placeholder="LRN"})
              </div>
          </div>
-     <div class="row py-1">
-         <div class="col-12 col-lg-4 px-5">
-             <label asp-for="Gender">Gender</label>
-             
-             <div class="mt-2">
-                 <div class="form-check form-check-inline">
-                     <input class="form-check-input" type="radio" name="gender" id="gender1" checked>
-                     <label class="form-check-label" for="gender1">
-                         Male
-                     </label>
-                 </div>
-                 <div class="form-check form-check-inline">
-                     <input class="form-check-input" type="radio" name="gender" id="gender2">
-                     <label class="form-check-label" for="gender2">
-                         Female
-                     </label>
+         <div class="row py-1">
+             <div class="col-6 col-lg-4 px-5">
+                 <label >Gender</label>
+                 <div class="mt-2">
+                     <div class="form-check form-check-inline">
+                         @Html.RadioButtonFor(x => x.Gender,1,new {@class="form-check-input", @name="gender", @checked="checked", @id="gender1"})
+                         @* <input class="form-check-input" type="radio" name="gender" id="gender1" checked="checked" asp-for="IsMale"> *@
+                         <label class="form-check-label" for="gender1">
+                             Male
+                         </label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        @Html.RadioButtonFor(x => x.Gender,2,new {@class="form-check-input", @name="gender", @id="gender2"})
+                        @* <input class="form-check-input" type="radio" name="gender" id="gender1" checked="checked" asp-for="IsMale"> *@
+                        <label class="form-check-label" for="gender2">
+                            Female
+                        </label>
+                     </div>
                  </div>
              </div>
-             
          </div>
- 
-     </div>
-  
-     <div class="row p-2">
-         <div class="col">
-             <input type="email" class="form-control" placeholder="Email" asp-for="Email">
-             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+         <div class="row p-2">
+             <div class="col">
+                 @* <input type="email" class="form-control" placeholder="Email" asp-for="Email"> *@
+                 @Html.TextBoxFor(m => m.Email,"email",new{@type="email", @class="form-control", @placeholder="someemail@yourdomain.com"})
+                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+             </div>
+             <div class="col">
+                 @* <input type="text" class="form-control" placeholder="Phone number" asp-for="PhoneNumber"> *@
+                 @Html.TextBoxFor(m => m.PhoneNumber,"",new{@class="form-control",@placeholder="0917 1234 789 | 639197896541"})
+             </div>
+        </div>
+        <hr/>
+        <div class="row p-2">
+             <div class="col">
+                 @* <input type="text" class="form-control" placeholder="Address Line 1" asp-for="AddressLine"> *@
+                 @Html.TextBoxFor(c => c.AddressLine,"",new {@class="form-control",@placeholder="Address line 1"})
+             </div>
+        </div>
+        <div class="row p-2">
+            <div class="col">
+                @* <input type="text" class="form-control" placeholder="City" asp-for="City"> *@
+                @Html.TextBoxFor(c => c.City, "",new {@class="form-control", @placeholder="City"})
+            </div>
+            <div class="col">
+                @* <input type="text" class="form-control" placeholder="State" asp-for="State"> *@
+                  @Html.TextBoxFor(c => c.State, "",new {@class="form-control", @placeholder="State"})
+            </div>
+             <div class="col">
+                 @* <input type="text" class="form-control" placeholder="Country" asp-for="Country"> *@
+                   @Html.TextBoxFor(c => c.Country, "",new {@class="form-control", @placeholder="Country", @value="Philippines"})
+             </div>
+             <div class="col">
+                 @* <input type="text" class="form-control" placeholder="Zipcode" asp-for="ZipCode"> *@
+                   @Html.TextBoxFor(c => c.ZipCode, "",new {@class="form-control", @placeholder="Zipcode"})
+             </div>
+
          </div>
-         <div class="col">
-            <input type="text" class="form-control" placeholder="Phone number" asp-for="PhoneNumber">
+     
+         <div class="row p-2">
+             <div class="col-12 col-md float-end">
+                 <button type="submit" class="btn btn-success p-2 ">Submit</button>
+                <a  class="btn btn-danger p-2 " asp-action="Index">Cancel</a>
+             </div>
+      
          </div>
-     </div>
-     <hr/>
- 
-     <div class="row p-2">
-         <div class="col">
-             <input type="text" class="form-control" placeholder="Address Line 1" asp-for="AddressLine">
-         </div>
-         <div class="col">
-             <input type="text" class="form-control" placeholder="City" asp-for="City">
-         </div>
-         <div class="col">
-             <input type="text" class="form-control" placeholder="State" asp-for="State">
-         </div>
-       
-     </div>
-     <div class="row p-2">
-         <div class="col">
-             <input type="text" class="form-control" placeholder="Country" asp-for="Country">
-         </div>
-         <div class="col">
-             <input type="text" class="form-control" placeholder="Zipcode" asp-for="ZipCode">
-         </div>
-        
-     </div>
- 
-     <div class="row p-2">
-         <div class="col-12 col-md float-end">
-            <button type="submit" class="btn btn-success p-2 ">Submit</button>
-              <a  class="btn btn-danger p-2 " asp-action="Index">Cancel</a>
-                          
-         </div>
-  
-     </div>
- </form>   
+     </form>   
     
 </div>
