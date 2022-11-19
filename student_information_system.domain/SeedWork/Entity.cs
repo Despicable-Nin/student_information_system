@@ -2,7 +2,7 @@
 
 namespace student_information_system.domain.SeedWork;
 
-internal abstract class Entity : Audit
+public abstract class Entity : Audit
 {
     private List<INotification> _domainEvents;
     private int? _requestedHashCode;

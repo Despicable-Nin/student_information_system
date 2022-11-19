@@ -2,7 +2,7 @@
 
 namespace student_information_system.domain.SeedWork;
 
-internal abstract class Audit : IAuditable
+public abstract class Audit : IAuditable
 {
     private string _createdBy;
 
