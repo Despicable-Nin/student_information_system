@@ -1,11 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace student_information.app.Models.StudentModels;
 
-public class StudentCreateViewModel
+public class StudentEditViewModel
 {
+    public int StudentId { get; set; }
     public string LRN { get; set; }
-    [Required]
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string MiddleName { get; set; }
